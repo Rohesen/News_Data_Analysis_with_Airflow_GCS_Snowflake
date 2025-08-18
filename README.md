@@ -9,7 +9,7 @@ The pipeline is orchestrated using **Apache Airflow** and creates useful **summa
 
 This project automates the flow of **news data** from the API to analytics-ready tables in Snowflake.
 
-![News Data Analysis Architecture](architecture_news_dara_analysis.jpg)
+![News Data Analysis Architecture](architecture_news_data_analysis.jpg)
 
 
 
