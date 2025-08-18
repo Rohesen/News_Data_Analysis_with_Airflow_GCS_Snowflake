@@ -217,7 +217,7 @@ This allows you to answer questions like:
   ```bash
   airflow dags trigger newsapi_to_gcs
   ```
-* Or let Airflow schedule it (daily).
+* Or let Airflow schedule it (daily). (I have scheduled it once a day)
 
 ---
 
