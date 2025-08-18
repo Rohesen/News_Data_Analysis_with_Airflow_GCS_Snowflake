@@ -11,12 +11,14 @@ This project automates the flow of **news data** from the API to analytics-ready
 
 ![News Data Analysis Architecture](architecture_news_data_analysis.jpg)
 
-
+---
 
 ### 🔹 Step 1: NewsAPI (Data Source)
 
 * We use **newsapi.org** to fetch the latest news articles.
 * Each article includes details like title, author, source, content, published date, etc.
+
+  ![new_api_website](Project_Screenshots/news_api.png)
 
 ---
 
@@ -29,6 +31,8 @@ This project automates the flow of **news data** from the API to analytics-ready
   2. Save the data into **Parquet files** (efficient storage format).
   3. Upload these files to **Google Cloud Storage (GCS)**.
   4. Trigger Snowflake to load and process the data.
+ 
+  ![airflow](Project_Screenshots/Screenshot_2.png)
 
 ---
 
@@ -37,7 +41,8 @@ This project automates the flow of **news data** from the API to analytics-ready
 * GCS acts as a **temporary data lake**.
 * All parquet files (`raw_1.parquet`, `raw_2.parquet`, …) are stored here.
 * Snowflake reads directly from this bucket.
-
+* 
+![gbucket](Project_Screenshots/Screenshot_1.png)
 ---
 
 ### 🔹 Step 4: Snowflake (Data Warehouse)
@@ -49,6 +54,14 @@ This project automates the flow of **news data** from the API to analytics-ready
   * **`summary_news`** → groups news by source with counts and date ranges.
   * **`author_activity`** → shows author activity with article counts and distinct sources.
 
+* **`summary_news`** 👇
+![summary_news](Project_Screenshots/Screenshot_4.png)
+
+
+* **`author_activity`** 👇
+![summary_news](Project_Screenshots/Screenshot_3.png)
+
+
 ---
 
 ### 🔹 End Result
@@ -58,6 +71,8 @@ This project automates the flow of **news data** from the API to analytics-ready
   * **Extract** → NewsAPI
   * **Load** → GCS (Parquet files)
   * **Transform** → Snowflake (summary tables)
+ 
+![airflow](Project_Screenshots/Screenshot_6.png)
 
 This allows you to answer questions like:
 
